@@ -15,12 +15,20 @@ const calculatePenalty = ({
   };
 };
 
-const ruleStagePenalty = R.cond([
-  [R.equals(dayBefore(FIVE_DAY)), R.always(2)],
-  [R.T, R.always(0)],
-]);
+const ruleStagePenalty = (dueDate) => {
+  let percentage;
+  switch (dueDate) {
+    case dayBefore(FIVE_DAY):
+      percentage = 1;
+      break;
+    default:
+      percentage = 0;
+      break;
+  }
+  return percentage;
+};
 
-const sendReminder = ({ email, totalPaymentAmount }) => {
+const sendReminder = ({ email, totalPaymentAmount }) => new Promise((resolve) => {
   setTimeout(() => {
     console.log('Sending Email to:', email);
     const result = {
@@ -28,9 +36,9 @@ const sendReminder = ({ email, totalPaymentAmount }) => {
       totalPaymentAmount,
     };
 
-    return Promise.resolve(result);
-  }, 2000);
-};
+    resolve(result);
+  }, 1200);
+});
 
 
 module.exports = {
