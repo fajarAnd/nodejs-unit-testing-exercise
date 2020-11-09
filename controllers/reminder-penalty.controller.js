@@ -13,6 +13,4 @@ const reminderPenalty = async ({ dueDate, amount, email }) => {
   }
 };
 
-module.exports = {
-  reminderPenalty,
-};
+module.exports = { reminderPenalty };

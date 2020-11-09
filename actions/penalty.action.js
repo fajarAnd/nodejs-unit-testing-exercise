@@ -1,4 +1,7 @@
+const { promisify } = require('util');
 const { dayBefore } = require('../helpers/date');
+
+const setTimeoutPromise = promisify(setTimeout);
 
 const FIVE_DAY = 5;
 
@@ -27,17 +30,14 @@ const ruleStagePenalty = (dueDate) => {
 };
 
 const sendReminder = ({ email, totalPaymentAmount }) => new Promise((resolve) => {
-  setTimeout(() => {
+  setTimeoutPromise(1200, {
+    success: true,
+    totalPaymentAmount,
+  }).then((res) => {
     console.log('Sending Email to:', email);
-    const result = {
-      success: true,
-      totalPaymentAmount,
-    };
-
-    resolve(result);
-  }, 1200);
+    return resolve(res);
+  });
 });
-
 
 module.exports = {
   calculatePenalty,
