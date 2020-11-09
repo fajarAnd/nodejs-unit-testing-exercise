@@ -1,21 +1,8 @@
-/* global describe beforeEach afterEach it */
+/* global describe  it */
 const { assert } = require('chai');
-const sinon = require('sinon');
 const rewardController = require('../../controllers/reward.controller');
-const pointRewardAction = require('../../actions/point-reward.action');
-const userDummy = require('../../data/user');
 
 describe('Reward Test', () => {
-  let sandbox;
-  let mock;
-  beforeEach(() => {
-    sandbox = sinon.createSandbox();
-    mock = sandbox.mock(pointRewardAction);
-  });
-  afterEach(() => {
-    sandbox.restore();
-  });
-
   it('Got 1 point reward', async () => {
     try {
       const payload = {
@@ -30,12 +17,9 @@ describe('Reward Test', () => {
         },
       };
 
-      mock.expects('getDetailUser').withArgs({ userId: payload.userId }).resolves(userDummy.user);
-      mock.expects('insertPointRewardUser').withArgs(expectedResult.data).resolves(expectedResult);
+      const result = await rewardController.reward(payload);
 
-      await rewardController.reward(payload);
-
-      mock.verify();
+      assert.deepEqual(result, expectedResult);
     } catch (e) {
       assert.ifError(e);
     }
@@ -55,12 +39,9 @@ describe('Reward Test', () => {
         },
       };
 
-      mock.expects('getDetailUser').withArgs({ userId: payload.userId }).resolves(userDummy.user);
-      mock.expects('insertPointRewardUser').withArgs(expectedResult.data).resolves(expectedResult);
+      const result = await rewardController.reward(payload);
 
-      await rewardController.reward(payload);
-
-      mock.verify();
+      assert.deepEqual(result, expectedResult);
     } catch (e) {
       assert.ifError(e);
     }
