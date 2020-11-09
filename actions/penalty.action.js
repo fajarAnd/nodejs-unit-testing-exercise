@@ -1,6 +1,4 @@
-const R = require('ramda');
 const { dayBefore } = require('../helpers/date');
-
 
 const FIVE_DAY = 5;
 
