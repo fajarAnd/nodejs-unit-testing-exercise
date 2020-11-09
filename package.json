@@ -1,0 +1,43 @@
+{
+  "name": "nodejs-unit-testing-exercise",
+  "version": "1.0.0",
+  "description": "unit testing exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --recursive --exit --reporter spec --timeout 12000 __TEST__/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fajarAnd/nodejs-unit-testing-exercise.git"
+  },
+  "keywords": [
+    "sinonjs",
+    "unit",
+    "testing",
+    "test",
+    "double"
+  ],
+  "author": "Fajar Andriansyah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fajarAnd/nodejs-unit-testing-exercise/issues"
+  },
+  "homepage": "https://github.com/fajarAnd/nodejs-unit-testing-exercise#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "sinon": "^9.0.2",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1"
+  },
+  "dependencies": {
+    "moment": "^2.29.1",
+    "ramda": "^0.27.1"
+  }
+}
