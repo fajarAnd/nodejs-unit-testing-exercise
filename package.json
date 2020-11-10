@@ -4,7 +4,9 @@
   "description": "unit testing exercise",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --recursive --exit --reporter spec --timeout 12000 __TEST__/*"
+    "test": "./node_modules/mocha/bin/mocha --recursive --exit --reporter spec --timeout 12000 __TEST__/*",
+    "coverage": "nyc --reporter=lcov npm run test",
+    "sonar": "node sonar-project.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +40,7 @@
   },
   "dependencies": {
     "moment": "^2.29.1",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "sonarqube-scanner": "^2.7.0"
   }
 }
