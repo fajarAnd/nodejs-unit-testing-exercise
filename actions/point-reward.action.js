@@ -19,7 +19,7 @@ const getRulePointReward = ({ userStatus, amount }) => {
 
   if ((amount > 10000) && (amount < 30000)) {
     point = 1;
-  } else if (amount > 3000) {
+  } else if (amount > 30000) {
     point = 2;
   } else {
     point = 0;
